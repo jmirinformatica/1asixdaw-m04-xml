@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!DOCTYPE note SYSTEM "exemple.dtd">
+<note>
+  <to>Tove</to>
+  <from>Jani</from>
+  <heading>Reminder</heading>
+  <body>Don't forget me this weekend!</body>
+  <etiqueta_desconeguda>Sóc un error ;(</etiqueta_desconeguda>
+</note>
