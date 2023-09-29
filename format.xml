@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Si executes CTRL + SHIFT + I es formatarà -->
+<!-- LINUX: Si executes CTRL + SHIFT + I es formatarà -->
+<!-- WINDOWS: Si executes ALT + SHIFT + F es formatarà -->
 <breakfast_menu>
 <food>
 <name>Belgian Waffles</name>

@@ -18,7 +18,7 @@ Et crearà una carpeta anomenada `1asixdaw-m04-xml`. Obre-la amb Visual Studio C
 
 ## Formatar XML
 
-Per formatar l'XML fes botó dret sobre l'XML i triar l'opció "Format Document" o les tecles ràpides CTRL + SHIFT + I. Pots practicar-ho amb el xml [format.xml](./format.xml).
+Per formatar l'XML fes botó dret sobre l'XML i triar l'opció "Format Document" o les tecles ràpides CTRL + SHIFT + I a Linux o ALT + SHIFT + F a Windows. Pots practicar-ho amb el xml [format.xml](./format.xml).
 
 ## DTD
 
