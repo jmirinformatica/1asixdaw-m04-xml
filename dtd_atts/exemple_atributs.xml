@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!DOCTYPE catalunya SYSTEM "exemple_atributs.dtd">
+<catalunya>
+    <barcelona>
+        <vilanova carnaval="el millor"></vilanova>
+        <sitges purpurina="excesiva"></sitges>
+    </barcelona>
+    <tarragona millor="que reus"></tarragona>
+    <lleida></lleida>
+    <girona catedral="maca"></girona>
+</catalunya>

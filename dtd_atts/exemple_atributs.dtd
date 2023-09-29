@@ -1,0 +1,12 @@
+<!ELEMENT catalunya (barcelona,tarragona,lleida, girona)>
+<!ELEMENT barcelona (vilanova, sitges)>
+<!ELEMENT vilanova (#PCDATA)>
+<!ATTLIST vilanova carnaval CDATA #FIXED "el millor" >
+<!ELEMENT sitges (#PCDATA)>
+<!ATTLIST sitges purpurina (si|molta|excesiva) "excesiva">
+<!ELEMENT tarragona (#PCDATA)>
+<!ATTLIST tarragona millor CDATA #IMPLIED>
+<!ELEMENT lleida (#PCDATA)>
+<!ATTLIST lleida millor CDATA #IMPLIED>
+<!ELEMENT girona (#PCDATA)>
+<!ATTLIST girona catedral CDATA #FIXED "maca">
