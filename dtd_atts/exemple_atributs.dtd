@@ -1,5 +1,6 @@
 <!ELEMENT catalunya (barcelona,tarragona,lleida, girona)>
 <!ELEMENT barcelona (vilanova, sitges)>
+<!ATTLIST barcelona gent (molta|demasia) #REQUIRED>
 <!ELEMENT vilanova (#PCDATA)>
 <!ATTLIST vilanova carnaval CDATA #FIXED "el millor" >
 <!ELEMENT sitges (#PCDATA)>

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE catalunya SYSTEM "exemple_atributs.dtd">
 <catalunya>
-    <barcelona>
+    <barcelona gent="demasia">
         <vilanova carnaval="el millor"></vilanova>
         <sitges purpurina="excesiva"></sitges>
     </barcelona>
