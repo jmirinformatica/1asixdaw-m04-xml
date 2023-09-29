@@ -9,4 +9,4 @@
 <!ELEMENT lleida (#PCDATA)>
 <!ATTLIST lleida millor CDATA #IMPLIED>
 <!ELEMENT girona (#PCDATA)>
-<!ATTLIST girona catedral CDATA #FIXED "maca">
+<!ATTLIST girona catedral CDATA #REQUIRED>
