@@ -3,4 +3,3 @@
 <!ELEMENT from (#PCDATA)>
 <!ELEMENT heading (#PCDATA)>
 <!ELEMENT body (#PCDATA)>
-<!ELEMENT from (#PCDATA)>

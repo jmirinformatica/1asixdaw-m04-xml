@@ -28,6 +28,21 @@ Per desactivar l'entorn:
 
 Pots provar els diferents exemples:
 
-    python validator.py exemples/exemple.xml
-    python validator.py exemples/exemple.xml exemples/exemple.dtd
-    python validator.py exemples/exemple.xml exemples/exemple.xsd
+```bash
+python3 validator.py exemples/exemple.xml
+python3 validator.py exemples/exemple.xml exemples/exemple.dtd
+python3 validator.py exemples/exemple.xml exemples/exemple.xsd
+python3 validator.py exemples/exemple.xml exemples/exemple.dtd exemples/exemple.xsd
+```
+
+La sortida de la darrera execuió haura de ser:
+
+    Fitxer XML: exemples/exemple.xml
+    Fitxer DTD: exemples/exemple.dtd
+    Fitxer XSD: exemples/exemple.xsd
+    -------------------------------------------------------
+    XML CORRECTE!
+    DTD CORRECTE!
+    Validant l'XML amb el DTD... OK!
+    XSD CORRECTE!
+    Validant l'XML amb el XSD... OK!

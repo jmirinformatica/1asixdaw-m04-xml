@@ -1,6 +1,10 @@
 import sys
 from lxml import etree
-from io import StringIO
+
+def validate(dtd_or_xsd, xml):
+    if not dtd_or_xsd.validate(xml):
+        errors = dtd_or_xsd.error_log.filter_from_errors()
+        sys.exit(f"error de validació:\n\t{errors[0]}") # mostro el primer tan sols
 
 def validator(file_names):
     xml_file_name = None
@@ -10,48 +14,58 @@ def validator(file_names):
     for file_name in file_names:
         if file_name.endswith(".xml"):
             xml_file_name = file_name
+            print(f"Fitxer XML: {xml_file_name}")
         elif file_name.endswith(".dtd"):
             dtd_file_name = file_name
+            print(f"Fitxer DTD: {dtd_file_name}")
         elif file_name.endswith(".xsd"):
             xsd_file_name = file_name
+            print(f"Fitxer XSD: {xsd_file_name}")
 
     if xml_file_name is None:
         sys.exit("No s'ha proporcionat cap fitxer amb extensió xml")
-    else:
-        xml = load_xml_file(file_name = xml_file_name)
-        
-        if dtd_file_name is None:   
-            if xsd_file_name is not None:
-                # un xsd és un tipus de XML
-                xsd = etree.XMLSchema(load_xml_file(xsd_file_name))    
-                return lxml_validator(xml = xml, dtd_or_xsd = xsd)
 
-            # si es None, entenem que sols volia comprobar si l'XML és sintacticament correcte
-        else:
-            if xsd_file_name is None:
-                dtd_string = read_file_as_string(file_name)
-                dtd = etree.DTD(StringIO(dtd_string))
-                return lxml_validator(xml = xml, dtd_or_xsd = dtd)
-            else:
-                sys.exit("S'ha de proporcionat un fitxer amb extensió dtd o xsd, no els dos a la vegada")
+    print("-------------------------------------------------------")
 
-def read_file_as_string(file_name):
-    text_file = open(file_name, "r")
-    data = text_file.read()
-    text_file.close()
-    return data
+    try:
+        xml = etree.parse(xml_file_name)
+    except Exception as e:
+        sys.exit(f"Error en el formato del XML:\n\t{e}")
 
-def load_xml_file(file_name):
-    xml_string = read_file_as_string(file_name)
-    # per evitar un error de codificació si l'XML té un paràmetre d'encoding
-    # https://stackoverflow.com/a/59215281
-    xml = etree.XML(xml_string.encode())
-    return xml
+    print("XML CORRECTE!")
 
-def lxml_validator(xml, dtd_or_xsd):
-    if not dtd_or_xsd.validate(xml):
-        errors = dtd_or_xsd.error_log.filter_from_errors()
-        sys.exit(errors[0]) # mostro el primer tan sols
+    if dtd_file_name is not None:
+        try:
+            dtd = etree.DTD(dtd_file_name)
+        except Exception as e:
+            sys.exit(f"Error en el formato del DTD:\n\t{e}")
+
+        print("DTD CORRECTE!")
+
+        # XML i DTD són correctes, validem l'XML contra el DTD
+        print("Validant l'XML amb el DTD... ", end = "")
+        validate(dtd_or_xsd = dtd, xml = xml)
+        print("OK!")
+
+    if xsd_file_name is not None:
+        # Un XSD és també un XML
+        try:
+            xsd_as_xml = etree.parse(xsd_file_name)
+        except Exception as e:
+            sys.exit(f"Error de XML en el XSD:\n\t{e}")
+
+        try:
+            xsd = etree.XMLSchema(xsd_as_xml)
+        except Exception as e:
+            sys.exit(f"Error en el formato XSD:\n\t{e}")
+
+        print("XSD CORRECTE!")
+
+        # XML i DTD són correctes, validem l'XML contra el DTD
+        print("Validant l'XML amb el XSD... ", end = "")
+        validate(dtd_or_xsd = xsd, xml = xml)
+        print("OK!")
+
 
 if __name__ == "__main__":
     # crido a la funció validator amb els paràmetres
