@@ -35,7 +35,7 @@ python3 validator.py exemples/exemple.xml exemples/exemple.xsd
 python3 validator.py exemples/exemple.xml exemples/exemple.dtd exemples/exemple.xsd
 ```
 
-La sortida de la darrera execuió haura de ser:
+La sortida de la darrera execució hauria de ser:
 
     Fitxer XML: exemples/exemple.xml
     Fitxer DTD: exemples/exemple.dtd
